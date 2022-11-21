@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('cloneProject') {
+            steps {
+                git 'https://github.com/MajedMoustafa/addressbook.git'
+            }
+        }
+        
+        stage('compile') {
+            steps {
+				echo 'execution Compilation'
+                sh 'mvn compile'
+            }
+        }
+		stage('tests') {
+            steps {
+				echo 'execution tests'
+                sh 'mvn test'
+            }
+        }
+		stage('package') {	
+            steps {
+				echo 'creating package'
+                sh 'mvn package'
+            }
+        }
+    }
+}
