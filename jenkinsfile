@@ -23,7 +23,7 @@ pipeline {
 		stage('test') {	
             steps {
 				echo 'test'
-                sh 'curl localhost:8888/addressbook-2'
+                sh 'curl localhost:8888/addressbook-2.0'
             }
         }
     }
