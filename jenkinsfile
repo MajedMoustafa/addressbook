@@ -4,6 +4,7 @@ pipeline {
     stage('Test') {
       steps {
       	echo 'execution tests'
+        sh 'curl localhost:8080/addressbook-2.0/'
       }
     }
   }
