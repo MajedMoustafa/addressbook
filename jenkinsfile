@@ -7,6 +7,12 @@ pipeline {
                 git 'https://github.com/MajedMoustafa/addressbook.git'
             }
         }
+	
+	stage('stop old containers') {
+	    steps {
+	    	sh 'docker ps --filter "ancestor=cep" -q | xargs docker stop'
+	    }
+	}
         
         stage('docker image build') {
             steps {
