@@ -14,7 +14,7 @@ RUN mvn clean install -DskipTests
 FROM tomcat:9.0-jdk11
 
 # Copy the WAR file from the Maven build to the Tomcat webapps directory
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
+COPY --from=build ~/addressbook/target/addressbook-2.0.war /usr/local/tomcat/webapps/
 
 # Expose port 80
 EXPOSE 80
