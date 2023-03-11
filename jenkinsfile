@@ -4,8 +4,8 @@ pipeline {
     stage('Test') {
       steps {
       	echo 'execution tests'
-        sh 'catalina.sh run'
-        sh 'curl localhost:8888/addressbook-2.0/'
+        sh 'sudo catalina.sh run'
+        sh 'sudo curl localhost:8080/addressbook-2.0/'
       }
     }
   }
