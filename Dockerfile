@@ -16,8 +16,8 @@ FROM tomcat:9.0-jdk11
 # Copy the WAR file from the Maven build to the Tomcat webapps directory
 COPY --from=build /app/target/addressbook-2.0.war /usr/local/tomcat/webapps/
 
-# Expose port 80
-EXPOSE 80
+# Expose port 8080
+EXPOSE 8080:8888
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
