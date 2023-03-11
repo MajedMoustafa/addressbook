@@ -29,7 +29,7 @@ pipeline {
 		stage('test') {	
             steps {
 				echo 'test'
-                sh 'curl http://localhost:8888'
+                sh 'curl http://54.173.242.244:8888'
             }
         }
     }
