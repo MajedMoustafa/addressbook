@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
       	echo 'execution tests'
-        sh 'mvn --version'
+        sh 'curl localhost:80/addressbook-2.0'
       }
     }
   }
