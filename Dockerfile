@@ -17,7 +17,7 @@ FROM tomcat:9.0-jdk11
 COPY --from=build /app/target/addressbook-2.0.war /usr/local/tomcat/webapps/
 
 # Expose port 8080
-EXPOSE 8080:8888
+EXPOSE 8080
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
