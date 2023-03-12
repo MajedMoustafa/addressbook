@@ -1,12 +1,30 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+    agent any
+    
+    stages {
+        stage('cloneProject') {
+            steps {
+                git 'https://github.com/MajedMoustafa/addressbook.git'
+            }
+        }
+        
+        stage('docker image build') {
+            steps {
+				echo 'docker image build'
+                sh 'docker build . -t cep'
+            }
+        }
+		stage('docker container run') {
+            steps {
+				echo 'run container'
+                sh 'docker container run -d cep'
+            }
+        }
+		stage('test') {	
+            steps {
+				echo 'test'
+                sh 'curl localhost:8080/addressbook-2'
+            }
+        }
     }
-  }
 }
